@@ -17,9 +17,9 @@ import Logo from 'src/components/logo';
 import Label from 'src/components/label';
 import SettingsDrawer from 'src/components/settings/drawer';
 //
-import { NavMobile, NavDesktop, navConfig } from '../nav';
-import Searchbar from '../../components/Searchbar';
+import { NavMobile, navConfig } from '../nav';
 import HeaderShadow from '../../components/HeaderShadow';
+
 import Typography from 'src/theme/overrides/Typography';
 
 // ----------------------------------------------------------------------
