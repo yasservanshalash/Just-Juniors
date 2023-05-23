@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Box, Link, Stack, Button, AppBar, Toolbar, Container } from '@mui/material';
+import { Box, Stack, Button, AppBar, Toolbar, Container } from '@mui/material';
+import Link from 'next/link';
 // hooks
 import useOffSetTop from 'src/hooks/useOffSetTop';
 import useResponsive from 'src/hooks/useResponsive';
@@ -19,6 +20,7 @@ import SettingsDrawer from 'src/components/settings/drawer';
 import { NavMobile, NavDesktop, navConfig } from '../nav';
 import Searchbar from '../../components/Searchbar';
 import HeaderShadow from '../../components/HeaderShadow';
+import Typography from 'src/theme/overrides/Typography';
 
 // ----------------------------------------------------------------------
 
@@ -30,7 +32,7 @@ export default function Header({ headerOnDark }) {
   const isOffset = useOffSetTop();
 
   return (
-    <AppBar color="transparent" sx={{ boxShadow: 'none' }}>
+    <AppBar color="inherit" sx={{ boxShadow: 'none' }}>
       <Toolbar
         disableGutters
         sx={{
@@ -77,7 +79,6 @@ export default function Header({ headerOnDark }) {
             </Link>
           </Box>
 
-          {isMdUp && <NavDesktop data={navConfig} />}
 
           <Stack
             spacing={2}
@@ -86,13 +87,21 @@ export default function Header({ headerOnDark }) {
             alignItems="center"
             justifyContent="flex-end"
           >
-            <Stack spacing={1} direction="row" alignItems="center">
-              <Searchbar />
 
-              <SettingsDrawer />
-            </Stack>
 
             {isMdUp && (
+              <Button
+                variant="outlined"
+                color="inherit"
+                rel="noopener"
+              >
+                <Link href="/auth/login-background" style={{color: "inherit", textDecoration: "none"}}>
+                Log in
+                </Link>
+              </Button>
+            )}
+
+{isMdUp && (
               <Button
                 variant="contained"
                 color="inherit"
@@ -100,9 +109,15 @@ export default function Header({ headerOnDark }) {
                 target="_blank"
                 rel="noopener"
               >
-                Buy Now
-              </Button>
+                <Link href="/auth/register-background" style={{color: "inherit", textDecoration: "none"}}>
+                Sign up
+                </Link>              </Button>
             )}
+
+<Stack spacing={1} direction="row" alignItems="center">
+
+<SettingsDrawer />
+</Stack>
           </Stack>
 
           {!isMdUp && <NavMobile data={navConfig} />}
