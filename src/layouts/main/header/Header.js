@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Box, Stack, Button, AppBar, Toolbar, Container } from '@mui/material';
+import Typography from 'src/theme/overrides/Typography';
+  
 import Link from 'next/link';
 // hooks
 import useOffSetTop from 'src/hooks/useOffSetTop';
@@ -20,7 +22,6 @@ import SettingsDrawer from 'src/components/settings/drawer';
 import { NavMobile, navConfig } from '../nav';
 import HeaderShadow from '../../components/HeaderShadow';
 
-import Typography from 'src/theme/overrides/Typography';
 
 // ----------------------------------------------------------------------
 
